@@ -13,13 +13,13 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:text="User Login"
+        android:text="Get Details by OTP"
         android:id="@+id/button2"
         android:textColor="#fff"
         android:background="@drawable/edge_circular_button"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="116dp" />
+        android:layout_marginTop="6dp" />
 
     <Button
         android:layout_width="match_parent"
@@ -31,5 +31,17 @@
         android:layout_below="@+id/button2"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="56dp" />
+        android:layout_marginTop="36dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="Enroll Employee"
+        android:id="@+id/button4"
+        android:textColor="#fff"
+        android:background="@drawable/edge_circular_button"
+        android:layout_below="@+id/button2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="136dp" />
 </RelativeLayout>

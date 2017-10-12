@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/AndroidNBioBSPJNI/AndroidNBioBSPJNI.iml" filepath="$PROJECT_DIR$/AndroidNBioBSPJNI/AndroidNBioBSPJNI.iml" />
       <module fileurl="file://$PROJECT_DIR$/Apcrabs2.iml" filepath="$PROJECT_DIR$/Apcrabs2.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/crasbs.iml" filepath="$PROJECT_DIR$/crasbs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/morpho_sdk_v4/morpho_sdk_v4.iml" filepath="$PROJECT_DIR$/morpho_sdk_v4/morpho_sdk_v4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/morpho_sdk_v4(L)/morpho_sdk_v4(L).iml" filepath="$PROJECT_DIR$/morpho_sdk_v4(L)/morpho_sdk_v4(L).iml" />
     </modules>
   </component>
 </project>
