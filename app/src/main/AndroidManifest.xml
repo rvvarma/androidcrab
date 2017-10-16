@@ -5,13 +5,16 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <meta-data
+            android:name="in.quagga.QT_API_KEY"
+            android:value="quagga_api_key" />
         <!-- Splash screen -->
         <activity
             android:name=".splash"
@@ -32,7 +35,11 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Black.NoTitleBar" />
         <activity android:name=".mainscreen" />
-        <activity android:name=".OTP"></activity>
+        <activity android:name=".OTP" />
+        <activity android:name=".profil_view" />
+        <activity android:name=".form" />
+        <activity android:name=".supplier" />
+        <activity android:name=".buyerform"></activity>
     </application>
 
 </manifest>
