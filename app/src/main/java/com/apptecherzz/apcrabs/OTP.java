@@ -79,7 +79,7 @@ System.out.println("checking id"+id);
          gatewayIntent = new Intent(OTP.this, ConsentActivity.class);
         gatewayIntent.putExtra(GATEWAY_TRANSACTION_ID, id);
         gatewayIntent.putExtra(KEY_REQUEST_TYPE, requestType);
-        //startActivityForResult(gatewayIntent, REQUEST_FOR_OTP);
+        startActivityForResult(gatewayIntent, REQUEST_FOR_OTP);
     }
 
     @Override
@@ -203,7 +203,7 @@ System.out.println("lkk"+statusCode);
             if (dialog.isShowing()) {
                 dialog.dismiss();
             }
-            startActivityForResult(gatewayIntent, REQUEST_FOR_OTP);
+
             System.out.println("goy it"+result);
             super.onPostExecute(result);
         }

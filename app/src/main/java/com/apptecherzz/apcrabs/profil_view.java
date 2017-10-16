@@ -6,6 +6,9 @@ import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -21,18 +24,27 @@ ImageView image;
     String address;
     String DOB;
     EditText n,s,d,a;
+    CheckBox famer,supplier,buyer;
+    Button b;
+    JSONObject jsonObj;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
 
         setContentView(R.layout.activity_profil_view);
-        /*image=(ImageView) findViewById(R.id.imageView);
+        jsonObj = new JSONObject();
+        famer=(CheckBox) findViewById(R.id.checkBox) ;
+        supplier=(CheckBox) findViewById(R.id.checkBox2);
+        buyer=(CheckBox) findViewById(R.id.checkBox3);
+        b=(Button) findViewById(R.id.bt_submitform);
+        image=(ImageView) findViewById(R.id.imageView);
+
         n=(EditText) findViewById(R.id.editText2);
         s=(EditText) findViewById(R.id.editText3);
         d=(EditText) findViewById(R.id.editText4);
         a=(EditText) findViewById(R.id.editText5);
-        String responceData= intent.getStringExtra("data");
+        /*String responceData= intent.getStringExtra("data");
 
         JSONObject jObject = null;
         try {
@@ -55,7 +67,38 @@ n.setText(name);
         a.setText(address);
         byte[] decodedString = Base64.decode(im, Base64.DEFAULT);
         Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-        image.setImageBitmap(decodedByte);
-        //JSONObject obj=new JSONObject()*/
+        image.setImageBitmap(decodedByte);*/
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    jsonObj.put("Name",name);
+
+                    jsonObj.put("DOB",DOB);
+                    jsonObj.put("Gender",sex);
+                    jsonObj.put("address",address);
+                    jsonObj.put("photo",im);
+                    if(famer.isChecked()) {
+                        Intent far = new Intent(profil_view.this, form.class);
+                        startActivity(far);
+                    }
+                       else if(supplier.isChecked()) {
+                        Intent sup = new Intent(profil_view.this, supplier.class);
+                        startActivity(sup);
+                    }
+                           else if(buyer.isChecked()) {
+                        Intent buy = new Intent(profil_view.this, buyerform.class);
+                        startActivity(buy);
+                    }
+
+
+
+                   // System.out.println("full data"+jsonObj.toString());
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 }

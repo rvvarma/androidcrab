@@ -16,7 +16,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class form extends AppCompatActivity {
+    JSONObject obj;
     TextView name, email, phn;
     EditText mobile_num;
     EditText fis_acres, fish_years, mudcrab_acres, mudcrab_years, shrimp_acres, shrimp_years;
@@ -25,7 +29,7 @@ public class form extends AppCompatActivity {
     EditText village, mandal, district, state, pincode;
     EditText min_salinity, max_salinity;
     Spinner select_state, select_water_type, select_moter_type, select_occupation, farming_capcity;
-    Button take_farmer_photo, take_id, submit;
+    Button submit;
     ImageView user_img;
     RadioGroup radioGroup;
     RadioButton seeds;
@@ -35,7 +39,7 @@ public class form extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form);
-
+obj=new JSONObject();
         mobile_num= (EditText)findViewById(R.id.et_mobileno);
         //   org_ocupation= (EditText)findViewById(R.id.et_occupation);
         farming_capcity= (Spinner) findViewById(R.id.et_capacity);
@@ -72,8 +76,8 @@ public class form extends AppCompatActivity {
         select_water_type= (Spinner)findViewById(R.id.sp_water_types);
         select_moter_type= (Spinner)findViewById(R.id.sp_motor_types);
         select_occupation = (Spinner)findViewById(R.id.et_occupation);
-        take_farmer_photo = (Button)findViewById(R.id.bt_farmerphoto);
-        take_id = (Button)findViewById(R.id.bt_uploadgovid);
+        //take_farmer_photo = (Button)findViewById(R.id.bt_farmerphoto);
+       // take_id = (Button)findViewById(R.id.bt_uploadgovid);
         submit = (Button)findViewById(R.id.bt_submitform);
         radioGroup =(RadioGroup)findViewById(R.id.id_seed_bag);
         seeds =(RadioButton)findViewById(R.id.id_num_seeds);
@@ -210,31 +214,37 @@ public class form extends AppCompatActivity {
 
                     } else{
 
-                                                                      mobile_num.getText().toString();
-                                        select_occupation.getSelectedItem().toString();
-                                        farming_capcity.getSelectedItem().toString();
-                                        fis_acres.getText().toString();
-                                        fish_years.getText().toString();
-                                        mudcrab_acres.getText().toString();
-                                        mudcrab_years.getText().toString();
-                                        shrimp_acres.getText().toString();
-                                        shrimp_years.getText().toString();
-                                        total_farming_area.getText().toString();
-                                        ownd_in_acres.getText().toString();
-                                        leased_in_acres.getText().toString();
-                                        total_farming_num.getText().toString();
-                                        owned_seed_num.getText().toString();//add bags for above and beloew
-                                        sponcerd_seed_num.getText().toString();
-                                        village.getText().toString();
-                                        mandal.getText().toString();
-                                        district.getText().toString();
-                                        state.getText().toString();
-                                        pincode.getText().toString();
-                                        min_salinity.getText().toString();
-                                        max_salinity.getText().toString();
-                                        select_water_type.getSelectedItem().toString();
-                                        select_moter_type.getSelectedItem().toString();
 
+                  try {
+                      obj.put("alt_mobile",mobile_num.getText().toString());
+
+                      obj.put("occupation",select_occupation.getSelectedItem().toString());
+                      obj.put("farm_capacity", farming_capcity.getSelectedItem().toString());
+                      obj.put("fish_acreas",fis_acres.getText().toString());
+                      obj.put("fish_years", fish_years.getText().toString());
+                      obj.put("mudcrab_acres", mudcrab_acres.getText().toString());
+                      obj.put("mudcrab_years" , mudcrab_years.getText().toString());
+                      obj.put("shr_acrs",  shrimp_acres.getText().toString());
+                      obj.put("shr_years",  shrimp_years.getText().toString());
+                      obj.put("total_farming_area",   total_farming_area.getText().toString());
+                      obj.put("own_acres", ownd_in_acres.getText().toString());
+                      obj.put("leased_area",  leased_in_acres.getText().toString());
+                      obj.put("total_famrming_bags",  total_farming_num.getText().toString());
+                      obj.put("own_seed_num", owned_seed_num.getText().toString());//add bags for above and beloew
+                      obj.put("sponsered_seed_num" , sponcerd_seed_num.getText().toString());
+                      obj.put("village", village.getText().toString());
+                                     obj.put("mandal",mandal.getText().toString());
+                      obj.put("district",district.getText().toString());
+                      obj.put("state", state.getText().toString());
+                      obj.put("pincode", pincode.getText().toString());
+                      obj.put("min_salinity", min_salinity.getText().toString());
+                      obj.put("max_salinity" ,max_salinity.getText().toString());
+                      obj.put("selected_water_type",select_water_type.getSelectedItem().toString());
+                      obj.put("select_motor_type",  select_moter_type.getSelectedItem().toString());
+                      System.out.println("checking data"+obj.toString());
+                  } catch (JSONException e) {
+                      e.printStackTrace();
+                  }
                             }
 
 
