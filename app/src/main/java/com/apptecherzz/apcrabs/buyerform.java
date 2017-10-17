@@ -3,12 +3,27 @@ package com.apptecherzz.apcrabs;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class buyerform extends AppCompatActivity {
 Spinner btype,state,STATE1;
+    JSONObject obj;
+    JSONObject mcm;
+    JSONObject mcb;
+    JSONObject mcxl;
+    JSONObject mcxxl;
+    JSONObject mcol;
+    JSONObject rcl;
+    JSONObject ssc;
+    JSONObject cm;
+    JSONObject sis;
+    Button submit;
     EditText company,auth_name,street,city,country,zip,tax,pan,gst,ph1,ph2,fax;
     EditText company1,auth_name1,street1,city1,country1,zip1,tax1,pan1,gst1,ph11,ph21,fax1;
     EditText mcm_a,mcm_y,mcm_w;
@@ -27,6 +42,17 @@ Spinner btype,state,STATE1;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buyerform);
+        obj=new JSONObject();
+        sis=new JSONObject();
+        mcm=new JSONObject();
+        mcb=new JSONObject();
+        mcxl=new JSONObject();
+        mcxxl=new JSONObject();
+        mcol=new JSONObject();
+        rcl=new JSONObject();
+        ssc=new JSONObject();
+        cm=new JSONObject();
+        submit=(Button) findViewById(R.id.bt_submitform);
         btype=(Spinner)findViewById(R.id.buyer_type);
         company=(EditText) findViewById(R.id.company_legal_name);
         auth_name=(EditText) findViewById(R.id.auth_persom_name);
@@ -154,7 +180,96 @@ Spinner btype,state,STATE1;
                 }
             }
         });
+submit.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        try {
+            obj.put("Company type",btype.getSelectedItem().toString());
+            obj.put("Company name",company.getText().toString());
+            obj.put("auth name",auth_name.getText().toString());
+            obj.put("street",street.getText().toString());
+            obj.put("City",city.getText().toString());
+            obj.put("state",state.getSelectedItem().toString());
+            obj.put("Country",country.getText().toString());
+            obj.put("zipcode",zip.getText().toString());
+            obj.put("Tax No",tax.getText().toString());
+            obj.put("Pan No",pan.getText().toString());
+            obj.put("GST No",gst.getText().toString());
+            obj.put("Phone 1",ph1.getText().toString());
+            obj.put("Phone 2",ph2.getText().toString());
+            obj.put("Fax No",fax.getText().toString());
 
+            mcm.put("Turn over",mcm_a.getText().toString());
+            mcm.put("Trading from",mcm_y.getText().toString());
+            mcm.put("per week",mcm_w.getText().toString());
+
+            mcb.put("Turn over",mcb_a.getText().toString());
+            mcb.put("Trading from",mcb_y.getText().toString());
+            mcb.put("per week",mcb_w.getText().toString());
+
+            mcxl.put("Turn over",mcxl_a.getText().toString());
+            mcxl.put("Trading from",mcxl_y.getText().toString());
+            mcxl.put("per week",mcxl_w.getText().toString());
+
+            mcxxl.put("Turn over",mcxxl_a.getText().toString());
+            mcxxl.put("Trading from",mcxxl_y.getText().toString());
+            mcxxl.put("per week",mcxxl_w.getText().toString());
+
+            mcol.put("Turn over",mcol_a.getText().toString());
+            mcol.put("Trading from",mcol_y.getText().toString());
+            mcol.put("per week",mcol_w.getText().toString());
+
+            rcl.put("Turn over",rc_a.getText().toString());
+            rcl.put("Trading from",rc_y.getText().toString());
+            rcl.put("per week",rc_w.getText().toString());
+
+            ssc.put("Turn over",sf_a.getText().toString());
+            ssc.put("Trading from",sf_y.getText().toString());
+            ssc.put("per week",sf_w.getText().toString());
+
+            cm.put("Turn over",cr_a.getText().toString());
+            cm.put("Trading from",cr_y.getText().toString());
+            cm.put("per week",cr_w.getText().toString());
+
+            obj.put("Mud Crab – M",mcm);
+            obj.put("Mud Crab – Big",mcb);
+            obj.put("Mud Crab – XL",mcxl);
+            obj.put("Mud Crab – XXL",mcxxl);
+            obj.put("Mud Crab – OL",mcol);
+            obj.put("Red Crab – ALive",rcl);
+            obj.put("Soft Shell Crab",ssc);
+            obj.put("Crab Meat",cm);
+
+            if(enable.isChecked()){
+                sis.put("Company name",company1.getText().toString());
+                sis.put("auth name",auth_name1.getText().toString());
+                sis.put("street",street1.getText().toString());
+                sis.put("City",city1.getText().toString());
+                sis.put("state",STATE1.getSelectedItem().toString());
+                sis.put("Country",country.getText().toString());
+                sis.put("zipcode",zip1.getText().toString());
+                sis.put("Tax No",tax1.getText().toString());
+                sis.put("Pan No",pan1.getText().toString());
+                sis.put("GST No",gst1.getText().toString());
+                sis.put("Phone 1",ph11.getText().toString());
+                sis.put("Phone 2",ph21.getText().toString());
+                sis.put("Fax No",fax1.getText().toString());
+            }
+            obj.put("Sister company",sis);
+            obj.put("ship type",ship_type.getSelectedItem().toString());
+            obj.put("ship times",ship_time.getSelectedItem().toString());
+            obj.put("rate card",rate.getSelectedItem().toString());
+            obj.put("local grader",lg.getSelectedItem().toString());
+            obj.put("local collector",lc.getSelectedItem().toString());
+            obj.put("payment type",pttype.getSelectedItem().toString());
+            obj.put("payment times",pttimes.getSelectedItem().toString());
+            System.out.println("revising "+obj.toString());
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+});
 
 
     }

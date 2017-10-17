@@ -29,16 +29,18 @@ String cahe;
     EditText mcw_a,mcw_y,mcw_w;
     EditText rcl_a,rcl_y,rcl_w;
     JSONObject obj;
-    JSONObject cach;
-    JSONObject sales;
+    JSONObject mcw;
+    JSONObject rcl;
+    JSONObject mcg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_supplier);
         obj=new JSONObject();
-        cach=new JSONObject();
-        sales=new JSONObject();
+        mcw=new JSONObject();
+        mcg=new JSONObject();
+        rcl=new JSONObject();
         btnAdd = (ImageButton) findViewById(R.id.btnAdd);
         btnAdd1 = (ImageButton) findViewById(R.id.btnAdd1);
         next=(Button) findViewById(R.id.bt_submitform);
@@ -97,12 +99,30 @@ String cahe;
                     obj.put("shipment_terms",shipdays.getSelectedItem().toString());
                     obj.put("rate_card",rate.getSelectedItem().toString());
 
+                    mcg.put("Turn over",mcg_a.getText().toString());
+                    mcg.put("Trading from",mcg_y.getText().toString());
+                    mcg.put("per week",mcg_w.getText().toString());
+
+                    mcw.put("Turn over",mcw_a.getText().toString());
+                    mcw.put("Trading from",mcw_y.getText().toString());
+                    mcw.put("per week",mcw_w.getText().toString());
+
+                    rcl.put("Turn over",rcl_a.getText().toString());
+                    rcl.put("Trading from",rcl_y.getText().toString());
+                    rcl.put("per week",rcl_w.getText().toString());
+
+                    obj.put("Mud Crab – GL",mcg);
+                    obj.put("Mud Crab – Waters",mcw);
+                    obj.put("Red Crab – Live",rcl);
 
 get(supplier.this);
                     get1(supplier.this);
                     String replaceString=cahe.replace("null","");
+                    String replaceString1=cahe1.replace("null","");
                    obj.put("chainers",replaceString);
-                    System.out.println("repeated1 "+obj.toString());
+                    obj.put("sales",replaceString1);
+                    System.out.println("repeated "+obj.toString());
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -117,7 +137,7 @@ get(supplier.this);
                 LinearLayout scrollViewlinerLayout = (LinearLayout) activity.findViewById(R.id.linearLayoutForm);
 
 
-
+                cahe="";
                 for (int i = 0; i < scrollViewlinerLayout.getChildCount(); i++)
                 {
                     LinearLayout innerLayout = (LinearLayout) scrollViewlinerLayout.getChildAt(i);
@@ -141,7 +161,7 @@ get(supplier.this);
         LinearLayout scrollViewlinerLayout1 = (LinearLayout) activity.findViewById(R.id.linearLayoutForm1);
 
 
-
+cahe1="";
         for (int i = 0; i < scrollViewlinerLayout1.getChildCount(); i++)
         {
             LinearLayout innerLayout = (LinearLayout) scrollViewlinerLayout1.getChildAt(i);
