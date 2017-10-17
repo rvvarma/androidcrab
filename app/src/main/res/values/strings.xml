@@ -106,7 +106,8 @@
     <string-array name="shipment_type">
         <item>Select Shipment type</item>
 
-        <item>Road  Way</item><item>Train</item>
+        <item>Road  Way</item>
+        <item>Train</item>
         <item>Airway</item>
 
     </string-array>

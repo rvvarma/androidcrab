@@ -38,8 +38,9 @@
         <activity android:name=".OTP" />
         <activity android:name=".profil_view" />
         <activity android:name=".form" />
-        <activity android:name=".supplier" />
-        <activity android:name=".buyerform"></activity>
+        <activity android:label="Supplier" android:name=".supplier" />
+        <activity android:name=".buyerform" />
+        <activity android:name=".declaration"></activity>
     </application>
 
 </manifest>

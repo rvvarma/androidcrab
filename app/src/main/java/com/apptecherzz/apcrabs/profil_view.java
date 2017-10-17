@@ -1,6 +1,7 @@
 package com.apptecherzz.apcrabs;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
@@ -78,7 +79,15 @@ n.setText(name);
                     jsonObj.put("Gender",sex);
                     jsonObj.put("address",address);
                     jsonObj.put("photo",im);
+                    SharedPreferences.Editor editor = getSharedPreferences("collect", MODE_PRIVATE).edit();
+                    editor.putString("profile", jsonObj.toString());
+                    editor.putBoolean("farmer",famer.isChecked());
+                    editor.putBoolean("supplier", supplier.isChecked());
+                    editor.putBoolean("buyer",buyer.isChecked());
+
+                    editor.commit();
                     if(famer.isChecked()) {
+
                         Intent far = new Intent(profil_view.this, form.class);
                         startActivity(far);
                     }

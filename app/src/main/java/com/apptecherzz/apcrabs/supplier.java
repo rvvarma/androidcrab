@@ -1,6 +1,8 @@
 package com.apptecherzz.apcrabs;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -121,6 +123,20 @@ get(supplier.this);
                     String replaceString1=cahe1.replace("null","");
                    obj.put("chainers",replaceString);
                     obj.put("sales",replaceString1);
+                    SharedPreferences.Editor editor = getSharedPreferences("collect", MODE_PRIVATE).edit();
+                    editor.putString("supplier",obj.toString());
+                    editor.commit();
+                    SharedPreferences prefs = getSharedPreferences("collect", MODE_PRIVATE);
+                    Boolean sup = prefs.getBoolean("buyer",false);
+                    if(sup){
+                        Intent i=new Intent(supplier.this,buyerform.class);
+                        startActivity(i);
+                    }
+                    else
+                    {
+                        Intent i=new Intent(supplier.this,declaration.class);
+                        startActivity(i);
+                    }
                     System.out.println("repeated "+obj.toString());
 
                 } catch (JSONException e) {

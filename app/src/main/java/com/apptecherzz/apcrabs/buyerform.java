@@ -1,5 +1,7 @@
 package com.apptecherzz.apcrabs;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -263,8 +265,13 @@ submit.setOnClickListener(new View.OnClickListener() {
             obj.put("local collector",lc.getSelectedItem().toString());
             obj.put("payment type",pttype.getSelectedItem().toString());
             obj.put("payment times",pttimes.getSelectedItem().toString());
-            System.out.println("revising "+obj.toString());
+            SharedPreferences.Editor editor = getSharedPreferences("collect", MODE_PRIVATE).edit();
+            editor.putString("buyer",obj.toString());
+            editor.commit();
 
+            System.out.println("revising "+obj.toString());
+            Intent i=new Intent(buyerform.this,declaration.class);
+            startActivity(i);
         } catch (JSONException e) {
             e.printStackTrace();
         }

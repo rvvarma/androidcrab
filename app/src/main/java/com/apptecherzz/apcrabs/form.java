@@ -1,6 +1,7 @@
 package com.apptecherzz.apcrabs;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -242,6 +243,20 @@ obj=new JSONObject();
                       obj.put("selected_water_type",select_water_type.getSelectedItem().toString());
                       obj.put("select_motor_type",  select_moter_type.getSelectedItem().toString());
                       System.out.println("checking data"+obj.toString());
+                      SharedPreferences.Editor editor = getSharedPreferences("collect", MODE_PRIVATE).edit();
+                      editor.putString("farmer",obj.toString());
+                      editor.commit();
+                      SharedPreferences prefs = getSharedPreferences("collect", MODE_PRIVATE);
+                      Boolean sup = prefs.getBoolean("supplier",false);
+                      if(sup){
+                          Intent i=new Intent(form.this,supplier.class);
+                          startActivity(i);
+                      }
+                      else
+                      {
+                          Intent i=new Intent(form.this,declaration.class);
+                          startActivity(i);
+                      }
                   } catch (JSONException e) {
                       e.printStackTrace();
                   }
