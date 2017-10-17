@@ -266,7 +266,7 @@ submit.setOnClickListener(new View.OnClickListener() {
             obj.put("payment type",pttype.getSelectedItem().toString());
             obj.put("payment times",pttimes.getSelectedItem().toString());
             SharedPreferences.Editor editor = getSharedPreferences("collect", MODE_PRIVATE).edit();
-            editor.putString("buyer",obj.toString());
+            editor.putString("buyer1",obj.toString());
             editor.commit();
 
             System.out.println("revising "+obj.toString());

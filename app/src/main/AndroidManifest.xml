@@ -36,11 +36,11 @@
             android:theme="@android:style/Theme.Black.NoTitleBar" />
         <activity android:name=".mainscreen" />
         <activity android:name=".OTP" />
-        <activity android:name=".profil_view" />
-        <activity android:name=".form" />
+        <activity android:label="Profile" android:name=".profil_view" />
+        <activity android:label="Farmer" android:name=".form" />
         <activity android:label="Supplier" android:name=".supplier" />
-        <activity android:name=".buyerform" />
-        <activity android:name=".declaration"></activity>
+        <activity android:label="Buyer" android:name=".buyerform" />
+        <activity android:label="Declaration" android:name=".declaration"></activity>
     </application>
 
 </manifest>

@@ -244,7 +244,7 @@ obj=new JSONObject();
                       obj.put("select_motor_type",  select_moter_type.getSelectedItem().toString());
                       System.out.println("checking data"+obj.toString());
                       SharedPreferences.Editor editor = getSharedPreferences("collect", MODE_PRIVATE).edit();
-                      editor.putString("farmer",obj.toString());
+                      editor.putString("farmer1",obj.toString());
                       editor.commit();
                       SharedPreferences prefs = getSharedPreferences("collect", MODE_PRIVATE);
                       Boolean sup = prefs.getBoolean("supplier",false);

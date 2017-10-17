@@ -1,6 +1,7 @@
 package com.apptecherzz.apcrabs;
 
 import android.app.ProgressDialog;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -22,6 +24,7 @@ import java.util.Map;
 public class declaration extends AppCompatActivity {
 Button submit;
     CheckBox c;
+    JSONObject dummy;
     public static final String REQUEST_METHOD = "POST";
     public static final int READ_TIMEOUT = 30000;
     public static final int CONNECTION_TIMEOUT = 30000;
@@ -31,14 +34,38 @@ Button submit;
         setContentView(R.layout.activity_declaration);
         submit=(Button) findViewById(R.id.bt_submitform1);
         c=(CheckBox)findViewById(R.id.accept);
+        dummy=new JSONObject();
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(c.isChecked()){
+                    SharedPreferences prefs = getSharedPreferences("collect", MODE_PRIVATE);
+                    Boolean far = prefs.getBoolean("farmer",false);
+                    Boolean sup = prefs.getBoolean("supplier",false);
+                    Boolean buy = prefs.getBoolean("buyer",false);
+                    try {
+
+                        dummy.put("farmer_b",far);
+                        dummy.put("supplier_b",sup);
+                        dummy.put("buyer_b",buy);
+                        dummy.put("profile",new JSONObject(prefs.getString("profile","no")));
+                        if(far)
+                        dummy.put("farmer",new JSONObject(prefs.getString("farmer1","no")));
+                        if(sup)
+                        dummy.put("supplier",prefs.getString("supplier1","no"));
+                        if(buy)
+                        dummy.put("buyer",prefs.getString("buyer1","no"));
+System.out.println("pop"+dummy.toString());
+                        HttpPostRequest rt=new HttpPostRequest();
+                        rt.execute();
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
 
                 }
                 else{
-                    Toast.makeText(getApplicationContext(), "PLease agree with the terms and conditions.",
+                    Toast.makeText(getApplicationContext(), "Please agree with the terms and conditions.",
                             Toast.LENGTH_SHORT).show();
                 }
             }
@@ -47,16 +74,10 @@ Button submit;
     }
     public class HttpPostRequest extends AsyncTask<String, Void, String> {
         private ProgressDialog dialog;
-        JSONObject postData;
-        public HttpPostRequest(Map<String, String> postData) {
-            dialog = new ProgressDialog(declaration.this);
-            if (postData != null) {
-                this.postData = new JSONObject(postData);
-            }
-        }
+
         @Override
         protected String doInBackground(String... params){
-            String stringUrl = "http://34.214.58.80:3000/agents/EKYC/904617879924";
+            String stringUrl = "http://34.214.58.80:3001/setup";
             String result = null;
             String inputLine;
             try {
@@ -75,9 +96,9 @@ Button submit;
 
                 connection.setRequestProperty("Content-Type", "application/json");
 
-                if (this.postData != null) {
+                if (dummy != null) {
                     OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream());
-                    writer.write(postData.toString());
+                    writer.write(dummy.toString());
                     writer.flush();
                 }
 
@@ -115,7 +136,7 @@ Button submit;
         }
         @Override
         protected void onPreExecute() {
-            dialog.setMessage("please wait.");
+           dialog=new ProgressDialog(declaration.this);
             dialog.show();
         }
         @Override

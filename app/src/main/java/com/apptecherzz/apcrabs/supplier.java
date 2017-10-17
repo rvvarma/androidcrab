@@ -124,10 +124,11 @@ get(supplier.this);
                    obj.put("chainers",replaceString);
                     obj.put("sales",replaceString1);
                     SharedPreferences.Editor editor = getSharedPreferences("collect", MODE_PRIVATE).edit();
-                    editor.putString("supplier",obj.toString());
+                    editor.putString("supplier1",obj.toString());
                     editor.commit();
                     SharedPreferences prefs = getSharedPreferences("collect", MODE_PRIVATE);
                     Boolean sup = prefs.getBoolean("buyer",false);
+
                     if(sup){
                         Intent i=new Intent(supplier.this,buyerform.class);
                         startActivity(i);
