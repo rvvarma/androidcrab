@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import org.json.JSONException;
@@ -44,31 +47,29 @@ public class OTP extends AppCompatActivity {
     String id;
     JSONObject obj;
     String trc;
+    Button b;
+    EditText adh;
     Intent gatewayIntent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(activity_otp);
+b=(Button) findViewById(R.id.bt_submitform);
+        adh=(EditText) findViewById(R.id.editText);
 
-
-
+b.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
         Map<String, String> postData = new HashMap<>();
         postData.put("purpose", "demo");
         postData.put("ver", "2.1");
         postData.put("storeCode", "QUASUS00036");
-       HttpPostRequest Generate_id=new HttpPostRequest(postData);
-        try {
-             trc=Generate_id.execute().get();
-//
-            obj = new JSONObject(trc);
-            id=obj.getString("id");
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        HttpPostRequest Generate_id=new HttpPostRequest(postData);
+        String num=adh.getText().toString();
+        Generate_id.execute(num);
+    }
+});
+
         ;
 
         requestType= OTP_EKYC.getServiceName();
@@ -76,10 +77,7 @@ public class OTP extends AppCompatActivity {
 
        // response.setText(trc);
 System.out.println("checking id"+id);
-         gatewayIntent = new Intent(OTP.this, ConsentActivity.class);
-        gatewayIntent.putExtra(GATEWAY_TRANSACTION_ID, id);
-        gatewayIntent.putExtra(KEY_REQUEST_TYPE, requestType);
-        startActivityForResult(gatewayIntent, REQUEST_FOR_OTP);
+
     }
 
     @Override
@@ -136,7 +134,7 @@ System.out.println("checking id"+id);
         }
         @Override
         protected String doInBackground(String... params){
-            String stringUrl = "http://34.214.58.80:3000/agents/EKYC/904617879924";
+            String stringUrl = "http://34.214.58.80:3000/agents/EKYC/"+params[0];   //904617879924";
             String result = null;
             String inputLine;
             try {
@@ -203,7 +201,17 @@ System.out.println("lkk"+statusCode);
             if (dialog.isShowing()) {
                 dialog.dismiss();
             }
+            try {
+                obj=new JSONObject(result);
+                id=obj.getString("id");
 
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            gatewayIntent = new Intent(OTP.this, ConsentActivity.class);
+            gatewayIntent.putExtra(GATEWAY_TRANSACTION_ID, id);
+            gatewayIntent.putExtra(KEY_REQUEST_TYPE, requestType);
+            startActivityForResult(gatewayIntent, REQUEST_FOR_OTP);
             System.out.println("goy it"+result);
             super.onPostExecute(result);
         }

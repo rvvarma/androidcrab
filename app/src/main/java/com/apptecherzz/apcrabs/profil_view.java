@@ -27,6 +27,7 @@ ImageView image;
     EditText n,s,d,a;
     CheckBox famer,supplier,buyer;
     Button b;
+
     JSONObject jsonObj;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,7 @@ ImageView image;
         s=(EditText) findViewById(R.id.editText3);
         d=(EditText) findViewById(R.id.editText4);
         a=(EditText) findViewById(R.id.editText5);
-        /*String responceData= intent.getStringExtra("data");
+        String responceData= intent.getStringExtra("data");
 
         JSONObject jObject = null;
         try {
@@ -68,7 +69,7 @@ n.setText(name);
         a.setText(address);
         byte[] decodedString = Base64.decode(im, Base64.DEFAULT);
         Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-        image.setImageBitmap(decodedByte);*/
+        image.setImageBitmap(decodedByte);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

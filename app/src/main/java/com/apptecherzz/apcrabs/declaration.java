@@ -1,6 +1,9 @@
 package com.apptecherzz.apcrabs;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -40,6 +43,7 @@ Button submit;
             public void onClick(View view) {
                 if(c.isChecked()){
                     SharedPreferences prefs = getSharedPreferences("collect", MODE_PRIVATE);
+                    SharedPreferences prefs1 = getSharedPreferences("token", MODE_PRIVATE);
                     Boolean far = prefs.getBoolean("farmer",false);
                     Boolean sup = prefs.getBoolean("supplier",false);
                     Boolean buy = prefs.getBoolean("buyer",false);
@@ -48,6 +52,7 @@ Button submit;
                         dummy.put("farmer_b",far);
                         dummy.put("supplier_b",sup);
                         dummy.put("buyer_b",buy);
+                        dummy.put("token",prefs1.getString("token","no"));
                         dummy.put("profile",new JSONObject(prefs.getString("profile","no")));
                         if(far)
                         dummy.put("farmer",new JSONObject(prefs.getString("farmer1","no")));
@@ -103,7 +108,7 @@ System.out.println("pop"+dummy.toString());
                 }
 
                 int statusCode = connection.getResponseCode();
-                System.out.println("lkk"+statusCode);
+                System.out.println("status code"+statusCode);
                 if (statusCode ==  200) {
                     //Create a new InputStreamReader
                     InputStreamReader streamReader = new
@@ -144,8 +149,69 @@ System.out.println("pop"+dummy.toString());
             if (dialog.isShowing()) {
                 dialog.dismiss();
             }
-
+            JSONObject rres;
             System.out.println("goy it"+result);
+            try {
+                 rres=new JSONObject(result);
+                AlertDialog alertDialog = new AlertDialog.Builder(
+                        declaration.this).create();
+
+                // Setting Dialog Title
+                alertDialog.setTitle("TR CRABS");
+                if(rres.getBoolean("success")) {
+
+
+                    // Setting Dialog Message
+                    alertDialog.setMessage(rres.getString("message"));
+
+                    // Setting Icon to Dialog
+
+
+                    // Setting OK Button
+                    alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent i=new Intent(declaration.this,OTP.class);
+                            startActivity(i);
+                            // Write your code here to execute after dialog closed
+                            //Toast.makeText(getApplicationContext(), "You clicked on OK", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                    // Showing Alert Message
+                    alertDialog.show();
+                }
+                else{
+
+
+
+                    // Setting Dialog Title
+
+
+
+
+                        // Setting Dialog Message
+                        alertDialog.setMessage(rres.getString("message"));
+
+                        // Setting Icon to Dialog
+
+
+                        // Setting OK Button
+                        alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                                // Write your code here to execute after dialog closed
+                                //Toast.makeText(getApplicationContext(), "You clicked on OK", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        // Showing Alert Message
+                        alertDialog.show();
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+
             super.onPostExecute(result);
         }
     }
