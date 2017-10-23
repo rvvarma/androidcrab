@@ -40,16 +40,53 @@
         android:textSize="30dp"
         />
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
-        android:ems="10"
-        android:inputType="phone"
-        android:maxLength="16"
+        android:id="@+id/hg"
+        android:layout_marginTop="62dp"
+        android:orientation="horizontal"
+        android:weightSum="1"
         android:layout_below="@+id/textView3"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignStart="@+id/textView3">
+
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:inputType="number"
+            android:layout_marginLeft="15dp"
+
+            android:id="@+id/n1"
+            android:singleLine="true"
+            android:maxLength="4"
+            android:layout_weight="0.30" />
+
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:inputType="number"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/n2"
+            android:singleLine="true"
+            android:maxLength="4"
+            android:layout_weight="0.30" />
+
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:inputType="number"
+            android:layout_marginLeft="15dp"
+
+            android:id="@+id/n3"
+            android:singleLine="true"
+            android:maxLength="4"
+            android:layout_weight="0.30" />
+
+    </LinearLayout>
+
 
 
     <Button
@@ -61,9 +98,9 @@
         android:textStyle="bold"
         android:layout_gravity="center"
         android:background="@drawable/bt_submit2"
-        android:layout_below="@+id/editText"
+        android:layout_below="@+id/hg"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="84dp" />
+        android:layout_marginTop="104dp" />
 
 
 </RelativeLayout>

@@ -23,7 +23,6 @@
 
 
 
-
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -34,43 +33,78 @@
             android:maxLines="1"
             android:singleLine="true"
             android:maxLength="10"/>
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/et_occupation"
-            android:entries="@array/spinner_occupation"
-            android:prompt="@string/spinner_states"
-            style="@style/Base.Widget.AppCompat.Spinner.Underlined">
-        </Spinner>
+         <EditText
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:hint="Enter Original Occupation"
+             android:textSize="15dp"
+             android:id="@+id/occupation"
+             android:inputType="text"
+             android:maxLines="1"
+             android:singleLine="true"
+             android:maxLength="10"/>
 
 
-
-
-        <!--<EditText-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:hint="Original occupation                          "-->
-        <!--android:textSize="15dp"-->
-        <!--android:id="@+id/et_occupation"-->
-        <!--android:maxLines="1"-->
-        <!--android:singleLine="true"/>-->
-
-        <!--<EditText-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:hint="Farming Capacity"-->
-        <!--android:textSize="15dp"-->
-        <!--android:id="@+id/et_farmingcapacity"-->
-        <!--android:maxLines="1"-->
-        <!--android:singleLine="true"/>-->
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/et_capacity"
-            android:entries="@array/spinner_capacity"
-            android:prompt="@string/spinner_states"
-            style="@style/Base.Widget.AppCompat.Spinner.Underlined">
-        </Spinner>
+         <EditText
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:hint="Enter Farming Capacity"
+             android:textSize="15dp"
+             android:id="@+id/farming_capacity"
+             android:inputType="text"
+             android:maxLines="1"
+             android:singleLine="true"
+             android:maxLength="10"/>
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="match_parent"
+             android:textColor="#000000"
+             android:textStyle="bold"
+             android:textSize="15dp"
+             android:layout_marginTop="20dp"
+             android:layout_marginBottom="15dp"
+             android:text="Farms Location:"/>
+         <EditText
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:hint="Village"
+             android:textSize="15dp"
+             android:id="@+id/et_village"
+             android:maxLines="1"
+             android:singleLine="true"/>
+         <EditText
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:hint="Mandal"
+             android:textSize="15dp"
+             android:id="@+id/et_mandal"
+             android:maxLines="1"
+             android:singleLine="true"/>
+         <EditText
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:hint="District"
+             android:textSize="15dp"
+             android:id="@+id/et_district"
+             android:maxLines="1"
+             android:singleLine="true"/>
+         <Spinner
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:id="@+id/state1"
+             android:entries="@array/spinner_stateslist"
+             android:prompt="@string/spinner_states"
+             style="@style/Base.Widget.AppCompat.Spinner.Underlined">
+         </Spinner>
+         <EditText
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:hint="Pincode"
+             android:textSize="15dp"
+             android:id="@+id/et_pincode"
+             android:maxLines="1"
+             android:singleLine="true"
+             android:inputType="number"/>
 
 
 
@@ -312,56 +346,7 @@
                 android:singleLine="true"
                 android:inputType="number"/>
         </LinearLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            android:textSize="15dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="15dp"
-            android:text="Farms Location:"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Village"
-            android:textSize="15dp"
-            android:id="@+id/et_village"
-            android:maxLines="1"
-            android:singleLine="true"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Mandal"
-            android:textSize="15dp"
-            android:id="@+id/et_mandal"
-            android:maxLines="1"
-            android:singleLine="true"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="District"
-            android:textSize="15dp"
-            android:id="@+id/et_district"
-            android:maxLines="1"
-            android:singleLine="true"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="State"
-            android:textSize="15dp"
-            android:id="@+id/et_state"
-            android:maxLines="1"
-            android:singleLine="true"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Pincode"
-            android:textSize="15dp"
-            android:id="@+id/et_pincode"
-            android:maxLines="1"
-            android:singleLine="true"
-            android:inputType="number"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

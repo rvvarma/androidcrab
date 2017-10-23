@@ -23,7 +23,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 Button b;
 EditText user,pass;
     JSONObject dummy;
@@ -121,69 +121,91 @@ EditText user,pass;
         @Override
         protected void onPreExecute() {
             dialog=new ProgressDialog(MainActivity.this);
+            dialog.setMessage("Loading...Please Wait");
             dialog.show();
         }
         @Override
-        protected void onPostExecute(String result){
+        protected void onPostExecute(String result) {
             if (dialog.isShowing()) {
                 dialog.dismiss();
             }
-            JSONObject rres;
-            System.out.println("goy it"+result);
-            try {
-                rres=new JSONObject(result);
+            if (result == null) {
                 AlertDialog alertDialog = new AlertDialog.Builder(
                         MainActivity.this).create();
 
                 // Setting Dialog Title
                 alertDialog.setTitle("TR CRABS");
-                if(rres.getBoolean("success")) {
-                    SharedPreferences.Editor editor = getSharedPreferences("token", MODE_PRIVATE).edit();
-                    editor.putString("token",rres.getString("token"));
-                    editor.commit();
+                alertDialog.setMessage("Something Went wrong");
 
-                            Intent i=new Intent(MainActivity.this,OTP.class);
-                            startActivity(i);
-                            // Write your code here to execute after dialog closed
-                            //Toast.makeText(getApplicationContext(), "You clicked on OK", Toast.LENGTH_SHORT).show();
+                // Setting Icon to Dialog
 
 
-                    // Showing Alert Message
-                   // alertDialog.show();
-                }
-                else{
+                // Setting OK Button
+                alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        // Write your code here to execute after dialog closed
+                        //Toast.makeText(getApplicationContext(), "You clicked on OK", Toast.LENGTH_SHORT).show();
+                    }
+                });
 
+                // Showing Alert Message
+                alertDialog.show();
 
+            } else {
+                JSONObject rres;
+                System.out.println("goy it" + result);
+                try {
+                    rres = new JSONObject(result);
+                    AlertDialog alertDialog = new AlertDialog.Builder(
+                            MainActivity.this).create();
 
                     // Setting Dialog Title
+                    alertDialog.setTitle("TR CRABS");
+                    if (rres.getBoolean("success")) {
+                        SharedPreferences.Editor editor = getSharedPreferences("token", MODE_PRIVATE).edit();
+                        editor.putString("token", rres.getString("token"));
+                        editor.commit();
+
+                        Intent i = new Intent(MainActivity.this, OTP.class);
+                        startActivity(i);
+                        // Write your code here to execute after dialog closed
+                        //Toast.makeText(getApplicationContext(), "You clicked on OK", Toast.LENGTH_SHORT).show();
 
 
+                        // Showing Alert Message
+                        // alertDialog.show();
+                    } else {
 
 
-                    // Setting Dialog Message
-                    alertDialog.setMessage(rres.getString("message"));
-
-                    // Setting Icon to Dialog
+                        // Setting Dialog Title
 
 
-                    // Setting OK Button
-                    alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                            // Write your code here to execute after dialog closed
-                            //Toast.makeText(getApplicationContext(), "You clicked on OK", Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                        // Setting Dialog Message
+                        alertDialog.setMessage(rres.getString("message"));
 
-                    // Showing Alert Message
-                    alertDialog.show();
+                        // Setting Icon to Dialog
+
+
+                        // Setting OK Button
+                        alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                                // Write your code here to execute after dialog closed
+                                //Toast.makeText(getApplicationContext(), "You clicked on OK", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        // Showing Alert Message
+                        alertDialog.show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
-            } catch (JSONException e) {
-                e.printStackTrace();
+
+
+                super.onPostExecute(result);
             }
-
-
-            super.onPostExecute(result);
         }
     }
 

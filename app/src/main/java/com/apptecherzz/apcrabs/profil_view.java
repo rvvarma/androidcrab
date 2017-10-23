@@ -24,7 +24,7 @@ ImageView image;
     String sex;
     String address;
     String DOB;
-    EditText n,s,d,a;
+    EditText n,s,d,a,present_address;
     CheckBox famer,supplier,buyer;
     Button b;
 
@@ -36,6 +36,7 @@ ImageView image;
 
         setContentView(R.layout.activity_profil_view);
         jsonObj = new JSONObject();
+        present_address=(EditText) findViewById(R.id.editText6);
         famer=(CheckBox) findViewById(R.id.checkBox) ;
         supplier=(CheckBox) findViewById(R.id.checkBox2);
         buyer=(CheckBox) findViewById(R.id.checkBox3);
@@ -47,6 +48,10 @@ ImageView image;
         d=(EditText) findViewById(R.id.editText4);
         a=(EditText) findViewById(R.id.editText5);
         String responceData= intent.getStringExtra("data");
+        n.setEnabled(false);
+        s.setEnabled(false);
+        d.setEnabled(false);
+        a.setEnabled(false);
 
         JSONObject jObject = null;
         try {
@@ -54,11 +59,13 @@ ImageView image;
             JSONObject categoryObject = jObject.getJSONObject("e_Kyc");
             JSONObject categoryObject1 = categoryObject.getJSONObject("Poi");
             JSONObject categoryObject2 = categoryObject.getJSONObject("Poa");
+
             im=categoryObject.getString("Photo");
             name=categoryObject1.getString("Name");
             DOB=categoryObject1.getString("Dob");
             sex=categoryObject1.getString("Gender");
             address=categoryObject2.getString("co")+","+categoryObject2.getString("house")+","+categoryObject2.getString("street")+","+categoryObject2.getString("loc")+","+categoryObject2.getString("vtc")+","+categoryObject2.getString("dist")+","+categoryObject2.getString("state")+","+categoryObject2.getString("pc")+","+categoryObject2.getString("po");
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -80,6 +87,7 @@ n.setText(name);
                     jsonObj.put("Gender",sex);
                     jsonObj.put("address",address);
                     jsonObj.put("photo",im);
+                    jsonObj.put("present_Address",present_address.getText().toString());
                     SharedPreferences.Editor editor = getSharedPreferences("collect", MODE_PRIVATE).edit();
                     editor.putString("profile", jsonObj.toString());
                     editor.putBoolean("farmer",famer.isChecked());

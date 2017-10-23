@@ -57,9 +57,9 @@ Button submit;
                         if(far)
                         dummy.put("farmer",new JSONObject(prefs.getString("farmer1","no")));
                         if(sup)
-                        dummy.put("supplier",prefs.getString("supplier1","no"));
+                        dummy.put("supplier",new JSONObject(prefs.getString("supplier1","no")));
                         if(buy)
-                        dummy.put("buyer",prefs.getString("buyer1","no"));
+                        dummy.put("buyer",new JSONObject(prefs.getString("buyer1","no")));
 System.out.println("pop"+dummy.toString());
                         HttpPostRequest rt=new HttpPostRequest();
                         rt.execute();
@@ -142,6 +142,7 @@ System.out.println("pop"+dummy.toString());
         @Override
         protected void onPreExecute() {
            dialog=new ProgressDialog(declaration.this);
+            dialog.setMessage("Loading...Please Wait");
             dialog.show();
         }
         @Override
@@ -170,6 +171,11 @@ System.out.println("pop"+dummy.toString());
                     // Setting OK Button
                     alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
+                            SharedPreferences preferences = getSharedPreferences("collect", MODE_PRIVATE);
+                            SharedPreferences.Editor editor = preferences.edit();
+                            editor.clear();
+                            editor.commit();
+
                             Intent i=new Intent(declaration.this,OTP.class);
                             startActivity(i);
                             // Write your code here to execute after dialog closed

@@ -13,6 +13,9 @@ import android.widget.Spinner;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class buyerform extends AppCompatActivity {
 Spinner btype,state,STATE1;
     JSONObject obj;
@@ -123,7 +126,18 @@ Spinner btype,state,STATE1;
 
 
             ship_type=(Spinner) findViewById(R.id.shipment_type);
-        ship_time=(Spinner) findViewById(R.id.times);
+        final Mutli spinner=(Mutli)findViewById(R.id.input1);
+
+        List<String> listl = new ArrayList<String>();
+        listl.add("Select Days");
+        listl.add("Sunnday");
+        listl.add("Monday");
+        listl.add("Tuesday");
+        listl.add("Wednesday");
+        listl.add("Thursday");
+        listl.add("Friday");
+        listl.add("Saturday");
+        spinner.setItems(listl);
         rate=(Spinner) findViewById(R.id.Ratecard);
         lg=(Spinner) findViewById(R.id.lg);
         lc=(Spinner) findViewById(R.id.lc);
@@ -186,85 +200,85 @@ submit.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
         try {
-            obj.put("Company type",btype.getSelectedItem().toString());
-            obj.put("Company name",company.getText().toString());
-            obj.put("auth name",auth_name.getText().toString());
+            obj.put("Company_type",btype.getSelectedItem().toString());
+            obj.put("Company_name",company.getText().toString());
+            obj.put("auth_name",auth_name.getText().toString());
             obj.put("street",street.getText().toString());
             obj.put("City",city.getText().toString());
             obj.put("state",state.getSelectedItem().toString());
             obj.put("Country",country.getText().toString());
             obj.put("zipcode",zip.getText().toString());
-            obj.put("Tax No",tax.getText().toString());
-            obj.put("Pan No",pan.getText().toString());
-            obj.put("GST No",gst.getText().toString());
-            obj.put("Phone 1",ph1.getText().toString());
-            obj.put("Phone 2",ph2.getText().toString());
-            obj.put("Fax No",fax.getText().toString());
+            obj.put("Tax_No",tax.getText().toString());
+            obj.put("Pan_No",pan.getText().toString());
+            obj.put("GST_No",gst.getText().toString());
+            obj.put("Phone_1",ph1.getText().toString());
+            obj.put("Phone_2",ph2.getText().toString());
+            obj.put("Fax_No",fax.getText().toString());
 
-            mcm.put("Turn over",mcm_a.getText().toString());
-            mcm.put("Trading from",mcm_y.getText().toString());
-            mcm.put("per week",mcm_w.getText().toString());
+            mcm.put("Turn_over",mcm_a.getText().toString());
+            mcm.put("Trading_from",mcm_y.getText().toString());
+            mcm.put("per_week",mcm_w.getText().toString());
 
-            mcb.put("Turn over",mcb_a.getText().toString());
-            mcb.put("Trading from",mcb_y.getText().toString());
-            mcb.put("per week",mcb_w.getText().toString());
+            mcb.put("Turn_over",mcb_a.getText().toString());
+            mcb.put("Trading_from",mcb_y.getText().toString());
+            mcb.put("per_week",mcb_w.getText().toString());
 
-            mcxl.put("Turn over",mcxl_a.getText().toString());
-            mcxl.put("Trading from",mcxl_y.getText().toString());
-            mcxl.put("per week",mcxl_w.getText().toString());
+            mcxl.put("Turn_over",mcxl_a.getText().toString());
+            mcxl.put("Trading_from",mcxl_y.getText().toString());
+            mcxl.put("per_week",mcxl_w.getText().toString());
 
-            mcxxl.put("Turn over",mcxxl_a.getText().toString());
-            mcxxl.put("Trading from",mcxxl_y.getText().toString());
-            mcxxl.put("per week",mcxxl_w.getText().toString());
+            mcxxl.put("Turn_over",mcxxl_a.getText().toString());
+            mcxxl.put("Trading_from",mcxxl_y.getText().toString());
+            mcxxl.put("per_week",mcxxl_w.getText().toString());
 
-            mcol.put("Turn over",mcol_a.getText().toString());
-            mcol.put("Trading from",mcol_y.getText().toString());
-            mcol.put("per week",mcol_w.getText().toString());
+            mcol.put("Turn_over",mcol_a.getText().toString());
+            mcol.put("Trading_from",mcol_y.getText().toString());
+            mcol.put("per_week",mcol_w.getText().toString());
 
-            rcl.put("Turn over",rc_a.getText().toString());
-            rcl.put("Trading from",rc_y.getText().toString());
-            rcl.put("per week",rc_w.getText().toString());
+            rcl.put("Turn_over",rc_a.getText().toString());
+            rcl.put("Trading_from",rc_y.getText().toString());
+            rcl.put("per_week",rc_w.getText().toString());
 
-            ssc.put("Turn over",sf_a.getText().toString());
-            ssc.put("Trading from",sf_y.getText().toString());
-            ssc.put("per week",sf_w.getText().toString());
+            ssc.put("Turn_over",sf_a.getText().toString());
+            ssc.put("Trading_from",sf_y.getText().toString());
+            ssc.put("per_week",sf_w.getText().toString());
 
-            cm.put("Turn over",cr_a.getText().toString());
-            cm.put("Trading from",cr_y.getText().toString());
-            cm.put("per week",cr_w.getText().toString());
+            cm.put("Turn_over",cr_a.getText().toString());
+            cm.put("Trading_from",cr_y.getText().toString());
+            cm.put("per_week",cr_w.getText().toString());
 
-            obj.put("Mud Crab – M",mcm);
-            obj.put("Mud Crab – Big",mcb);
-            obj.put("Mud Crab – XL",mcxl);
-            obj.put("Mud Crab – XXL",mcxxl);
-            obj.put("Mud Crab – OL",mcol);
-            obj.put("Red Crab – ALive",rcl);
-            obj.put("Soft Shell Crab",ssc);
-            obj.put("Crab Meat",cm);
+            obj.put("Mud_Crab_M",mcm);
+            obj.put("Mud_Crab – Big",mcb);
+            obj.put("Mud_Crab – XL",mcxl);
+            obj.put("Mud_Crab – XXL",mcxxl);
+            obj.put("Mud_Crab – OL",mcol);
+            obj.put("Red_Crab – ALive",rcl);
+            obj.put("Soft_Shell_Crab",ssc);
+            obj.put("Crab_Meat",cm);
 
             if(enable.isChecked()){
-                sis.put("Company name",company1.getText().toString());
-                sis.put("auth name",auth_name1.getText().toString());
+                sis.put("Company_name",company1.getText().toString());
+                sis.put("auth_name",auth_name1.getText().toString());
                 sis.put("street",street1.getText().toString());
                 sis.put("City",city1.getText().toString());
                 sis.put("state",STATE1.getSelectedItem().toString());
                 sis.put("Country",country.getText().toString());
                 sis.put("zipcode",zip1.getText().toString());
-                sis.put("Tax No",tax1.getText().toString());
-                sis.put("Pan No",pan1.getText().toString());
-                sis.put("GST No",gst1.getText().toString());
-                sis.put("Phone 1",ph11.getText().toString());
-                sis.put("Phone 2",ph21.getText().toString());
-                sis.put("Fax No",fax1.getText().toString());
+                sis.put("Tax_No",tax1.getText().toString());
+                sis.put("Pan_No",pan1.getText().toString());
+                sis.put("GST_No",gst1.getText().toString());
+                sis.put("Phone_1",ph11.getText().toString());
+                sis.put("Phone_2",ph21.getText().toString());
+                sis.put("Fax_No",fax1.getText().toString());
             }
-            obj.put("Sister company",sis);
-            obj.put("ship type",ship_type.getSelectedItem().toString());
-            obj.put("ship times",ship_time.getSelectedItem().toString());
-            obj.put("rate card",rate.getSelectedItem().toString());
-            obj.put("local grader",lg.getSelectedItem().toString());
-            obj.put("local collector",lc.getSelectedItem().toString());
-            obj.put("payment type",pttype.getSelectedItem().toString());
-            obj.put("payment times",pttimes.getSelectedItem().toString());
+            obj.put("Sister_company",sis);
+            obj.put("ship_type",ship_type.getSelectedItem().toString());
+            obj.put("ship_times",spinner.getSelectedStrings());
+            obj.put("rate_card",rate.getSelectedItem().toString());
+            obj.put("local_grader",lg.getSelectedItem().toString());
+            obj.put("local_collector",lc.getSelectedItem().toString());
+            obj.put("payment_type",pttype.getSelectedItem().toString());
+            obj.put("payment_times",pttimes.getSelectedItem().toString());
             SharedPreferences.Editor editor = getSharedPreferences("collect", MODE_PRIVATE).edit();
             editor.putString("buyer1",obj.toString());
             editor.commit();

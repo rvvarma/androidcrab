@@ -184,4 +184,13 @@
         <item>Local Buyer </item>
 
     </string-array>
+
+    <string-array name="cate">
+        <item>Select type</item>
+        <item>Direct Catcher</item>
+        <item>Local Collector</item>
+        <item>Small Trader</item>
+        <item>Big Trader</item>
+
+    </string-array>
 </resources>

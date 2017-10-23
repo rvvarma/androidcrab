@@ -23,14 +23,16 @@ import org.json.JSONObject;
 public class form extends AppCompatActivity {
     JSONObject obj;
     TextView name, email, phn;
-    EditText mobile_num;
+    EditText mobile_num,occupation,capacity;
     EditText fis_acres, fish_years, mudcrab_acres, mudcrab_years, shrimp_acres, shrimp_years;
     EditText total_farming_area, ownd_in_acres, leased_in_acres;
     EditText total_farming_num, owned_seed_num, sponcerd_seed_num;
     EditText village, mandal, district, state, pincode;
     EditText min_salinity, max_salinity;
+
     Spinner select_state, select_water_type, select_moter_type, select_occupation, farming_capcity;
     Button submit;
+    String st;
     ImageView user_img;
     RadioGroup radioGroup;
     RadioButton seeds;
@@ -40,10 +42,12 @@ public class form extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form);
-obj=new JSONObject();
+            obj=new JSONObject();
         mobile_num= (EditText)findViewById(R.id.et_mobileno);
+        occupation=(EditText) findViewById(R.id.occupation) ;
+        capacity=(EditText) findViewById(R.id.farming_capacity);
         //   org_ocupation= (EditText)findViewById(R.id.et_occupation);
-        farming_capcity= (Spinner) findViewById(R.id.et_capacity);
+        select_state=(Spinner) findViewById(R.id.state1);
         fis_acres= (EditText)findViewById(R.id.et_fc_acres);
         fish_years= (EditText)findViewById(R.id.et_fc_years);
         mudcrab_acres= (EditText)findViewById(R.id.et_md_acres);
@@ -70,13 +74,13 @@ obj=new JSONObject();
         village= (EditText)findViewById(R.id.et_village);
         mandal= (EditText)findViewById(R.id.et_mandal);
         district= (EditText)findViewById(R.id.et_district);
-        state= (EditText)findViewById(R.id.et_state);
+      //  state= (EditText)findViewById(R.id.et_state);
         pincode= (EditText)findViewById(R.id.et_pincode);
         min_salinity= (EditText)findViewById(R.id.et_minsalinity);
         max_salinity= (EditText)findViewById(R.id.et_maxsalinity);
         select_water_type= (Spinner)findViewById(R.id.sp_water_types);
         select_moter_type= (Spinner)findViewById(R.id.sp_motor_types);
-        select_occupation = (Spinner)findViewById(R.id.et_occupation);
+        //select_occupation = (Spinner)findViewById(R.id.et_occupation);
         //take_farmer_photo = (Button)findViewById(R.id.bt_farmerphoto);
        // take_id = (Button)findViewById(R.id.bt_uploadgovid);
         submit = (Button)findViewById(R.id.bt_submitform);
@@ -134,7 +138,7 @@ obj=new JSONObject();
             public void onClick(View view) {
 
 
-//                 String st =select_state.getSelectedItem().toString();
+                 // st =select_state.getSelectedItem().toString();
 //                  int pos =s.getSelectedItemPosition()
               if(mobile_num.getText().toString().isEmpty()){
                         mobile_num.setError("This Field Required");
@@ -142,8 +146,6 @@ obj=new JSONObject();
 //                  }else if(org_ocupation.getText().toString().isEmpty()){
 //                      org_ocupation.setError("This Field Required");
 //                      showToast("Some fields are incomplete");
-                    }else if(select_occupation.getSelectedItemPosition()==0) {
-                        showToast("Select Occupation");
                     }else if(farming_capcity.getSelectedItemPosition()==0){
                         showToast("Select Farming Capacity");
                     }else if(fis_acres.getText().toString().isEmpty()){
@@ -191,9 +193,6 @@ obj=new JSONObject();
                     }else if(district.getText().toString().isEmpty()){
                         district.setError("This Field Required");
                         showToast("Some fields are incomplete");
-                    }else if(state.getText().toString().isEmpty()){
-                        state.setError("This Field Required");
-                        showToast("Some fields are incomplete");
                     }else if(pincode.getText().toString().isEmpty()){
                         pincode.setError("This Field Required");
                         showToast("Some fields are incomplete");
@@ -207,8 +206,8 @@ obj=new JSONObject();
                         showToast("Select water type");
                     }else if(select_moter_type.getSelectedItemPosition()==0) {
                         showToast("Select moter type");
-//                  }else if(select_state.getItemAtPosition(0).toString().equals("Select Water Type")) {
-//                      showToast("Select water type");
+                  }else if(select_state.getItemAtPosition(0).toString().equals("Select Water Type")) {
+                      showToast("Select water type");
 //                  }else if(select_state.getItemAtPosition(0).toString().equals("Select Motor Type")) {
 //                      showToast("Select moter type");
 
@@ -219,8 +218,9 @@ obj=new JSONObject();
                   try {
                       obj.put("alt_mobile",mobile_num.getText().toString());
 
-                      obj.put("occupation",select_occupation.getSelectedItem().toString());
-                      obj.put("farm_capacity", farming_capcity.getSelectedItem().toString());
+
+                      obj.put("occupation",occupation.getText().toString());
+                      obj.put("farm_capacity", capacity.getText().toString());
                       obj.put("fish_acreas",fis_acres.getText().toString());
                       obj.put("fish_years", fish_years.getText().toString());
                       obj.put("mudcrab_acres", mudcrab_acres.getText().toString());
@@ -236,7 +236,7 @@ obj=new JSONObject();
                       obj.put("village", village.getText().toString());
                                      obj.put("mandal",mandal.getText().toString());
                       obj.put("district",district.getText().toString());
-                      obj.put("state", state.getText().toString());
+                      obj.put("state", select_state.getSelectedItem().toString());
                       obj.put("pincode", pincode.getText().toString());
                       obj.put("min_salinity", min_salinity.getText().toString());
                       obj.put("max_salinity" ,max_salinity.getText().toString());

@@ -97,114 +97,11 @@
                 android:singleLine="true"
                 />
         </LinearLayout>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            android:textSize="15dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginLeft="4dp"
-            android:text="Payment Terms:"/>
-
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/pay_terms"
-            android:entries="@array/spinner_terms"
-            style="@style/Base.Widget.AppCompat.Spinner.Underlined">
-        </Spinner>
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            android:textSize="15dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginLeft="4dp"
-            android:text="Payment Details:"/>
-
-
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Enter Bank Name"
-            android:textSize="15dp"
-            android:id="@+id/bank_name"
-            android:inputType="text"
-            android:maxLines="1"
-            android:singleLine="true"
-            android:maxLength="10"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Enter Account No"
-            android:textSize="15dp"
-            android:id="@+id/account_name"
-            android:inputType="text"
-            android:maxLines="1"
-            android:singleLine="true"
-            android:maxLength="10"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Enter IFSC CODE"
-            android:textSize="15dp"
-            android:id="@+id/ifsc"
-            android:inputType="text"
-            android:maxLines="1"
-            android:singleLine="true"
-            android:maxLength="10"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            android:textSize="15dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginLeft="4dp"
-            android:text="Shipment Terms:"/>
-
-
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/shipment_type"
-            android:entries="@array/shipment_type"
-
-            style="@style/Base.Widget.AppCompat.Spinner.Underlined">
-        </Spinner>
-
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/shipment_days"
-            android:entries="@array/shipment_days"
-            style="@style/Base.Widget.AppCompat.Spinner.Underlined">
-        </Spinner>
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            android:textSize="15dp"
-            android:layout_marginTop="20dp"
-            android:text="Will provide Rate card"
-            android:layout_marginBottom="12dp"/>
-
-
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/Ratecard"
-            android:entries="@array/Rate_card"
+            android:id="@+id/cat"
+            android:entries="@array/cate"
             style="@style/Base.Widget.AppCompat.Spinner.Underlined">
         </Spinner>
         <TextView
@@ -227,14 +124,14 @@
                 android:layout_height="match_parent"
                 android:textColor="#000000"
 
-                android:textSize="13dp"
+                android:textSize="8dp"
                 android:layout_marginTop="20dp"
                 android:text="Mud Crab – GL"/>
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:hint="Turn Over"
+                android:hint="Turn Over PA"
                 android:layout_marginLeft="25dp"
                 android:textSize="13dp"
                 android:id="@+id/et_fc_acres"
@@ -243,7 +140,7 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:hint="Trading from "
+                android:hint="Trading from Years"
                 android:layout_marginLeft="5dp"
                 android:textSize="13dp"
                 android:id="@+id/et_fc_years"
@@ -252,7 +149,7 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:hint="Per week"
+                android:hint="Quantity Pw"
                 android:layout_marginLeft="5dp"
                 android:textSize="13dp"
                 android:id="@+id/et_fc_week"
@@ -271,14 +168,14 @@
                 android:layout_height="match_parent"
                 android:textColor="#000000"
 
-                android:textSize="13dp"
+                android:textSize="8dp"
                 android:layout_marginTop="20dp"
                 android:text="Mud Crab – Waters"/>
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:hint="Per Anum"
+                android:hint="Turn Over PA"
                 android:layout_marginLeft="15dp"
                 android:textSize="13dp"
                 android:id="@+id/et_md_acres"
@@ -287,7 +184,7 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:hint="Trading from"
+                android:hint="Trading from Years"
                 android:layout_marginLeft="5dp"
                 android:textSize="13dp"
                 android:id="@+id/et_md_years"
@@ -296,7 +193,7 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:hint="Per Week"
+                android:hint="Quantity PW"
                 android:layout_marginLeft="5dp"
                 android:textSize="13dp"
                 android:id="@+id/et_md_per_week"
@@ -314,14 +211,14 @@
                 android:layout_height="match_parent"
                 android:textColor="#000000"
 
-                android:textSize="13dp"
+                android:textSize="8dp"
                 android:layout_marginTop="20dp"
                 android:text="Red Crab – Live"/>
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:hint="Per Anum"
+                android:hint="Turn Over PA"
                 android:layout_marginLeft="25dp"
                 android:textSize="13dp"
                 android:id="@+id/et_sh_acres"
@@ -330,7 +227,7 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:hint="Trading from"
+                android:hint="Trading from Years"
                 android:layout_marginLeft="5dp"
                 android:textSize="13dp"
                 android:id="@+id/et_sh_years"
@@ -339,7 +236,7 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:hint="Per Week"
+                android:hint="Quantity PW"
                 android:layout_marginLeft="5dp"
                 android:textSize="13dp"
                 android:id="@+id/et_sh_week"
@@ -391,9 +288,6 @@
             android:text="Sales Chain"
             android:layout_marginBottom="15dp"/>
 
-
-
-
         <LinearLayout
             android:id="@+id/linearLayoutForm1"
             android:layout_width="match_parent"
@@ -410,6 +304,120 @@
             android:layout_alignParentTop="true"
             android:contentDescription="Add"
             android:src="@android:drawable/ic_input_add" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="4dp"
+            android:text="Payment Terms:"/>
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/pay_terms"
+            android:entries="@array/spinner_terms"
+            style="@style/Base.Widget.AppCompat.Spinner.Underlined">
+        </Spinner>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="4dp"
+            android:text="Payment Details:"/>
+
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Bank Name"
+            android:textSize="15dp"
+            android:id="@+id/bank_name"
+            android:inputType="text"
+            android:maxLines="1"
+            android:singleLine="true"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Account No"
+            android:textSize="15dp"
+            android:id="@+id/account_name"
+            android:inputType="text"
+            android:maxLines="1"
+            android:singleLine="true"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter IFSC CODE"
+            android:textSize="15dp"
+            android:id="@+id/ifsc"
+            android:inputType="text"
+            android:maxLines="1"
+            android:singleLine="true"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="4dp"
+            android:text="Shipment Terms:"/>
+
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/shipment_type"
+            android:entries="@array/shipment_type"
+
+            style="@style/Base.Widget.AppCompat.Spinner.Underlined">
+        </Spinner>
+
+
+
+        <com.apptecherzz.apcrabs.MultiSelectionSpinner
+            android:id="@+id/input1"
+            style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_marginTop="20dp"
+            android:text="Will provide Rate card"
+            android:layout_marginBottom="12dp"/>
+
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/Ratecard"
+            android:entries="@array/Rate_card"
+            style="@style/Base.Widget.AppCompat.Spinner.Underlined">
+        </Spinner>
+
+
+
 
 
 

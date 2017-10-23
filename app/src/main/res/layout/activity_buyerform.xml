@@ -1,3 +1,4 @@
+
 <ScrollView android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
@@ -52,71 +53,71 @@
             android:singleLine="true"
             />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Street Address"
-            android:textSize="15dp"
-            android:id="@+id/street_address"
-            android:inputType="text"
-            android:maxLines="1"
-            android:singleLine="true"
-            />
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="City                    "
-            android:textSize="15dp"
-            android:id="@+id/city"
-            android:inputType="text"
-            android:maxLines="1"
-            android:singleLine="true"
-            />
-        <Spinner
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/state"
-            android:entries="@array/spinner_stateslist"
-            android:prompt="@string/spinner_states"
-            style="@style/Base.Widget.AppCompat.Spinner.Underlined">
-        </Spinner>
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Street Address"
+                android:textSize="15dp"
+                android:id="@+id/street_address"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="City                    "
+                android:textSize="15dp"
+                android:id="@+id/city"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                />
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/state"
+                android:entries="@array/spinner_stateslist"
+                android:prompt="@string/spinner_states"
+                style="@style/Base.Widget.AppCompat.Spinner.Underlined">
+            </Spinner>
 
 
 
         </LinearLayout>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Enter country name               "
-            android:textSize="15dp"
-            android:id="@+id/country"
-            android:inputType="text"
-            android:maxLines="1"
-            android:singleLine="true"
-            />
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Enter zipcode                   "
-            android:textSize="15dp"
-            android:id="@+id/zipcode"
-            android:inputType="number"
-            android:maxLines="1"
-            android:singleLine="true"
-            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Enter country name               "
+                android:textSize="15dp"
+                android:id="@+id/country"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Enter zipcode                   "
+                android:textSize="15dp"
+                android:id="@+id/zipcode"
+                android:inputType="number"
+                android:maxLines="1"
+                android:singleLine="true"
+                />
 
 
-      </LinearLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -554,192 +555,192 @@
                 android:maxLines="1"
                 android:singleLine="true"/>
         </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            android:textSize="15dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginLeft="4dp"
-            android:text="Sister Concern 1:"/>
-        <CheckBox
-            android:id="@+id/chkIos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:text="click to enable" />
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="4dp"
+                android:text="Sister Concern 1:"/>
+            <CheckBox
+                android:id="@+id/chkIos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="click to enable" />
         </LinearLayout>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Company legal Name"
-        android:textSize="15dp"
-        android:id="@+id/company_legal_name1"
-        android:inputType="text"
-        android:maxLines="1"
-        android:singleLine="true"
-        />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Authorized Person Name"
-        android:textSize="15dp"
-        android:id="@+id/auth_persom_name1"
-        android:inputType="text"
-        android:maxLines="1"
-        android:singleLine="true"
-        />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
         <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Street Address"
-            android:textSize="15dp"
-            android:id="@+id/street_address1"
-            android:inputType="text"
-            android:maxLines="1"
-            android:singleLine="true"
-            />
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="City                    "
-            android:textSize="15dp"
-            android:id="@+id/city1"
-            android:inputType="text"
-            android:maxLines="1"
-            android:singleLine="true"
-            />
-        <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/state1"
-            android:entries="@array/spinner_stateslist"
-            android:prompt="@string/spinner_states"
-            style="@style/Base.Widget.AppCompat.Spinner.Underlined">
-        </Spinner>
-
-
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Country               "
+            android:hint="Company legal Name"
             android:textSize="15dp"
-            android:id="@+id/country1"
+            android:id="@+id/company_legal_name1"
             android:inputType="text"
             android:maxLines="1"
             android:singleLine="true"
             />
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Zipcode                   "
+            android:hint="Authorized Person Name"
             android:textSize="15dp"
-            android:id="@+id/zipcode1"
+            android:id="@+id/auth_persom_name1"
             android:inputType="text"
             android:maxLines="1"
             android:singleLine="true"
             />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Street Address"
+                android:textSize="15dp"
+                android:id="@+id/street_address1"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="City                    "
+                android:textSize="15dp"
+                android:id="@+id/city1"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                />
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/state1"
+                android:entries="@array/spinner_stateslist"
+                android:prompt="@string/spinner_states"
+                style="@style/Base.Widget.AppCompat.Spinner.Underlined">
+            </Spinner>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Country               "
+                android:textSize="15dp"
+                android:id="@+id/country1"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Enter Zipcode                   "
+                android:textSize="15dp"
+                android:id="@+id/zipcode1"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                />
         </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="TAX ID               "
-            android:textSize="15dp"
-            android:id="@+id/TAX_ID1"
-            android:inputType="text"
-            android:maxLines="1"
-            android:singleLine="true"
-            />
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="PAN NO                   "
-            android:textSize="15dp"
-            android:id="@+id/pan1"
-            android:inputType="text"
-            android:maxLines="1"
-            android:singleLine="true"
-            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="TAX ID               "
+                android:textSize="15dp"
+                android:id="@+id/TAX_ID1"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="PAN NO                   "
+                android:textSize="15dp"
+                android:id="@+id/pan1"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                />
 
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="GST NO                   "
-            android:textSize="15dp"
-            android:id="@+id/GST1"
-            android:inputType="text"
-            android:maxLines="1"
-            android:singleLine="true"
-            />
-
-
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Phone 1              "
-            android:textSize="15dp"
-            android:id="@+id/PH11"
-            android:inputType="text"
-            android:maxLines="1"
-            android:singleLine="true"
-            />
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Phone 2                  "
-            android:textSize="15dp"
-            android:id="@+id/PH21"
-            android:inputType="text"
-            android:maxLines="1"
-            android:singleLine="true"
-            />
-
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="FAX NO                   "
-            android:textSize="15dp"
-            android:id="@+id/FAX1"
-            android:inputType="text"
-            android:maxLines="1"
-            android:singleLine="true"
-            />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="GST NO                   "
+                android:textSize="15dp"
+                android:id="@+id/GST1"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                />
 
 
 
-</LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Phone 1              "
+                android:textSize="15dp"
+                android:id="@+id/PH11"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Phone 2                  "
+                android:textSize="15dp"
+                android:id="@+id/PH21"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                />
+
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="FAX NO                   "
+                android:textSize="15dp"
+                android:id="@+id/FAX1"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                />
+
+
+
+        </LinearLayout>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -757,7 +758,7 @@
             android:entries="@array/pttype"
 
             style="@style/Base.Widget.AppCompat.Spinner.Underlined">
-</Spinner>
+        </Spinner>
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -830,14 +831,13 @@
 
             style="@style/Base.Widget.AppCompat.Spinner.Underlined">
         </Spinner>
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/times"
-            android:entries="@array/shipment_times"
 
-            style="@style/Base.Widget.AppCompat.Spinner.Underlined">
-        </Spinner>
+        <com.apptecherzz.apcrabs.Multi
+            android:id="@+id/input1"
+            style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

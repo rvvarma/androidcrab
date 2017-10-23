@@ -1,6 +1,8 @@
 package com.apptecherzz.apcrabs;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -48,14 +50,16 @@ public class OTP extends AppCompatActivity {
     JSONObject obj;
     String trc;
     Button b;
-    EditText adh;
+    EditText adh1,adh2,adh3;
     Intent gatewayIntent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(activity_otp);
 b=(Button) findViewById(R.id.bt_submitform);
-        adh=(EditText) findViewById(R.id.editText);
+        adh1=(EditText) findViewById(R.id.n1);
+        adh2=(EditText) findViewById(R.id.n2);
+        adh3=(EditText) findViewById(R.id.n3);
 
 b.setOnClickListener(new View.OnClickListener() {
     @Override
@@ -65,12 +69,12 @@ b.setOnClickListener(new View.OnClickListener() {
         postData.put("ver", "2.1");
         postData.put("storeCode", "QUASUS00036");
         HttpPostRequest Generate_id=new HttpPostRequest(postData);
-        String num=adh.getText().toString();
+        String num=adh1.getText().toString()+adh2.getText().toString()+adh3.getText().toString();
         Generate_id.execute(num);
     }
 });
 
-        ;
+
 
         requestType= OTP_EKYC.getServiceName();
 
@@ -115,7 +119,38 @@ System.out.println("checking id"+id);
                 }
 
                 if (resultCode == RESULT_ERROR) {
+                    JSONObject ki=new JSONObject();
                     String errorString = data.getStringExtra(KEY_ACTIVITY_RESULT);
+                    try {
+                         ki=new JSONObject(errorString);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    AlertDialog alertDialog = new AlertDialog.Builder(
+                            OTP.this).create();
+
+                    // Setting Dialog Title
+                    alertDialog.setTitle("TR CRABS");
+                    try {
+                        alertDialog.setMessage(ki.getString("message"));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                    // Setting Icon to Dialog
+
+
+                    // Setting OK Button
+                    alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                            // Write your code here to execute after dialog closed
+                            //Toast.makeText(getApplicationContext(), "You clicked on OK", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                    // Showing Alert Message
+                    alertDialog.show();
                     //handle error for otp_ekyc
                    // response.setText(errorString);
                 }
