@@ -352,7 +352,7 @@
             android:hint="Enter Account No"
             android:textSize="15dp"
             android:id="@+id/account_name"
-            android:inputType="text"
+            android:inputType="number"
             android:maxLines="1"
             android:singleLine="true"
             />

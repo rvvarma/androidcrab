@@ -146,8 +146,6 @@ public class form extends AppCompatActivity {
 //                  }else if(org_ocupation.getText().toString().isEmpty()){
 //                      org_ocupation.setError("This Field Required");
 //                      showToast("Some fields are incomplete");
-                    }else if(farming_capcity.getSelectedItemPosition()==0){
-                        showToast("Select Farming Capacity");
                     }else if(fis_acres.getText().toString().isEmpty()){
                         fis_acres.setError("This Field Required");
                         showToast("Some fields are incomplete");
