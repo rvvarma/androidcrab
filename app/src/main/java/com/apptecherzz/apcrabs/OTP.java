@@ -207,7 +207,7 @@ System.out.println("checking id"+id);
         }
         @Override
         protected String doInBackground(String... params){
-            String stringUrl = "http://34.214.58.80:3000/agents/EKYC/"+params[0];   //904617879924";
+            String stringUrl = "http://35.163.113.249:3000/agents/EKYC/"+params[0];   //904617879924";
             String result = null;
             String inputLine;
             try {
@@ -270,23 +270,41 @@ System.out.println("lkk"+statusCode);
             dialog.show();
         }
         @Override
-        protected void onPostExecute(String result){
+        protected void onPostExecute(String result) {
             if (dialog.isShowing()) {
                 dialog.dismiss();
             }
-            try {
-                obj=new JSONObject(result);
-                id=obj.getString("id");
+            AlertDialog alertDialog = new AlertDialog.Builder(
+                    OTP.this).create();
+            if (result == null) {
+                alertDialog.setTitle("TR CRABS");
+                alertDialog.setMessage("An Error Occured Please try Again");
+                alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
 
-            } catch (JSONException e) {
-                e.printStackTrace();
+
+                        // Write your code here to execute after dialog closed
+                        //Toast.makeText(getApplicationContext(), "You clicked on OK", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                // Showing Alert Message
+                alertDialog.show();
+            } else {
+                try {
+                    obj = new JSONObject(result);
+                    id = obj.getString("id");
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                gatewayIntent = new Intent(OTP.this, ConsentActivity.class);
+                gatewayIntent.putExtra(GATEWAY_TRANSACTION_ID, id);
+                gatewayIntent.putExtra(KEY_REQUEST_TYPE, requestType);
+                startActivityForResult(gatewayIntent, REQUEST_FOR_OTP);
+                System.out.println("goy it" + result);
+                super.onPostExecute(result);
             }
-            gatewayIntent = new Intent(OTP.this, ConsentActivity.class);
-            gatewayIntent.putExtra(GATEWAY_TRANSACTION_ID, id);
-            gatewayIntent.putExtra(KEY_REQUEST_TYPE, requestType);
-            startActivityForResult(gatewayIntent, REQUEST_FOR_OTP);
-            System.out.println("goy it"+result);
-            super.onPostExecute(result);
         }
     }
 }

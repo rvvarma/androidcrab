@@ -61,7 +61,7 @@ EditText user,pass;
 
         @Override
         protected String doInBackground(String... params){
-            String stringUrl = "http://34.214.58.80:3001/auth";
+            String stringUrl = "http://35.163.113.249:3001/auth";
             String result = null;
             String inputLine;
             try {
@@ -165,6 +165,7 @@ EditText user,pass;
                     if (rres.getBoolean("success")) {
                         SharedPreferences.Editor editor = getSharedPreferences("token", MODE_PRIVATE).edit();
                         editor.putString("token", rres.getString("token"));
+                        editor.putString("user", user.getText().toString());
                         editor.commit();
 
                         Intent i = new Intent(MainActivity.this, OTP.class);

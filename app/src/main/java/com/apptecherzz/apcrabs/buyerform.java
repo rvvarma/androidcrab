@@ -215,6 +215,10 @@ submit.setOnClickListener(new View.OnClickListener() {
             obj.put("Phone_2",ph2.getText().toString());
             obj.put("Fax_No",fax.getText().toString());
 
+            obj.put("bank_name",bank_name.getText().toString());
+            obj.put("bank_acc",bank_acc.getText().toString());
+            obj.put("bank_ifsc",bank_ifsc.getText().toString());
+
             mcm.put("Turn_over",mcm_a.getText().toString());
             mcm.put("Trading_from",mcm_y.getText().toString());
             mcm.put("per_week",mcm_w.getText().toString());
@@ -248,15 +252,17 @@ submit.setOnClickListener(new View.OnClickListener() {
             cm.put("per_week",cr_w.getText().toString());
 
             obj.put("Mud_Crab_M",mcm);
-            obj.put("Mud_Crab – Big",mcb);
-            obj.put("Mud_Crab – XL",mcxl);
-            obj.put("Mud_Crab – XXL",mcxxl);
-            obj.put("Mud_Crab – OL",mcol);
-            obj.put("Red_Crab – ALive",rcl);
+            obj.put("Mud_Crab_Big",mcb);
+            obj.put("Mud_Crab_XL",mcxl);
+            obj.put("Mud_Crab_XXL",mcxxl);
+            obj.put("Mud_Crab_OL",mcol);
+            obj.put("Red_Crab_ALive",rcl);
             obj.put("Soft_Shell_Crab",ssc);
             obj.put("Crab_Meat",cm);
 
             if(enable.isChecked()){
+
+obj.put("Sister",true);
                 sis.put("Company_name",company1.getText().toString());
                 sis.put("auth_name",auth_name1.getText().toString());
                 sis.put("street",street1.getText().toString());

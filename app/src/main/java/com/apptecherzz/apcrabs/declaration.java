@@ -52,6 +52,7 @@ Button submit;
                         dummy.put("farmer_b",far);
                         dummy.put("supplier_b",sup);
                         dummy.put("buyer_b",buy);
+                        dummy.put("completed_by",prefs1.getString("user","no"));
                         dummy.put("token",prefs1.getString("token","no"));
                         dummy.put("profile",new JSONObject(prefs.getString("profile","no")));
                         if(far)
@@ -82,7 +83,7 @@ System.out.println("pop"+dummy.toString());
 
         @Override
         protected String doInBackground(String... params){
-            String stringUrl = "http://34.214.58.80:3001/setup";
+            String stringUrl = "http://35.163.113.249:3001/setup";
             String result = null;
             String inputLine;
             try {
